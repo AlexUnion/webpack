@@ -9,8 +9,12 @@ module.exports = {
         print: './src/print.js',
     },
     devtool: 'inline-source-map',
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        port: 3000
+    },
     plugins: [
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
         new HtmlWebpackPlugin({
             title: 'Development',
         }),
